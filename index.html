@@ -1,0 +1,27 @@
+---
+layout: page
+#title: Blog
+tagline: Supporting tagline
+---
+{% include JB/setup %}
+
+<style>
+	.blog-list{list-style-type: none !important; font-size: 20px; line-height: 50px;}
+	.blog-list li a:hover{color: red; font-weight: bold;}
+</style>
+
+<hr>
+
+
+{% for post in paginator.posts %}
+    <a href="{{ post.url }}">{{ post.title }}</a>
+{% endfor %}
+
+
+<!-- 
+
+http://jekyll.com.cn/docs/variables/ 
+
+http://jekyll.com.cn/docs/templates/
+
+-->
