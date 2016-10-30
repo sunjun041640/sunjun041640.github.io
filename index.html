@@ -22,35 +22,35 @@ tagline: Supporting tagline
 </ul>
 
 {% if paginator.total_pages > 1 %}
-<div class="pagination">
-  {% if paginator.previous_page %}
-    {% if page == 1 %}
-      <a href="/">&laquo; Prev</a>
-    {% else }
-      <a href="/p{{ paginator.previous_page }}">&laquo; Prev</a>
-    {% endif }
-  {% else %}
-    <span>&laquo; Prev</span>
-  {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <em>{{ page }}</em>
-    {% elsif page == 1 %}
-      <a href="/">{{ page }}</a>
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+        <a href="/">&laquo; Prev</a>
+      {% else }
+        <a href="/p{{ paginator.previous_page }}">&laquo; Prev</a>
+      {% endif }
     {% else %}
-      <a href="/p{{ page }}">{{ page }}</a>
+      <span>&laquo; Prev</span>
     {% endif %}
-  {% endfor %}
 
-  {% if paginator.next_page %}
-    <a href="/p{{ paginator.next_page }}">Next &raquo;</a>
-  {% else %}
-    <span>Next &raquo;</span>
-  {% endif %}
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <em>{{ page }}</em>
+      {% elsif page == 1 %}
+        <a href="/">{{ page }}</a>
+      {% else %}
+        <a href="/p{{ page }}">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
 
-  <span>Total: {{ paginator.total_posts }}</span>
-</div>
+    {% if paginator.next_page %}
+      <a href="/p{{ paginator.next_page }}">Next &raquo;</a>
+    {% else %}
+      <span>Next &raquo;</span>
+    {% endif %}
+
+    <span>Total: {{ paginator.total_posts }}</span>
+  </div>
 {% endif %}
 
 
