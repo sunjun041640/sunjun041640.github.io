@@ -24,7 +24,7 @@ tagline: Supporting tagline
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}/index.html">&laquo; Prev</a>
+    <a href="/p{{ paginator.previous_page }}">&laquo; Prev</a>
   {% else %}
     <span>&laquo; Prev</span>
   {% endif %}
@@ -33,17 +33,19 @@ tagline: Supporting tagline
     {% if page == paginator.page %}
       <em>{{ page }}</em>
     {% elsif page == 1 %}
-      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}/index.html">{{ page }}</a>
+      <a href="/">{{ page }}</a>
     {% else %}
-      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}/index.html">{{ page }}</a>
+      <a href="/p{{ page }}">{{ page }}</a>
     {% endif %}
   {% endfor %}
 
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}/index.html">Next &raquo;</a>
+    <a href="/p{{ paginator.next_page }}">Next &raquo;</a>
   {% else %}
     <span>Next &raquo;</span>
   {% endif %}
+
+  <span>Total: {{ paginator.total_posts }}</span>
 </div>
 {% endif %}
 
