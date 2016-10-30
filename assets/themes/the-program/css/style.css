@@ -598,6 +598,8 @@ pre {
 }
 .the-header .nav-global {
   text-transform: uppercase;
+  width: 1000px;
+  margin: 0 auto;
 }
 .the-header .nav-global .logo {
   text-transform: none;
@@ -1003,13 +1005,11 @@ pre {
     padding-left: 52px;
   }
   .body {
-    float: left;
-    width: 100%;
-    margin-right: -450px;
+    width: 1000px;
+    margin: 0 auto;
   }
   .body .unit-body {
     border-top: 0 none;
-    margin-right: 450px;
     padding: 26px 52px;
   }
   .the-footer {
