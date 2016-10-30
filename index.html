@@ -20,16 +20,11 @@ tagline: Supporting tagline
     </li>
   {% endfor %}
 </ul>
-aaaaa
-{{ paginator.previous_page }}
-vvvvvvvv
 
 {% if paginator.total_pages > 1 %}
   <div class="pagination">
     {% if paginator.previous_page %}
-    ---
       {% if paginator.previous_page == 1 %}
-      ===================
         <a href="/">&laquo; Prev</a>
       {% else %}
         <a href="/p{{ paginator.previous_page }}">&laquo; Prev</a>
