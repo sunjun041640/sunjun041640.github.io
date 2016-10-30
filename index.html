@@ -24,7 +24,11 @@ tagline: Supporting tagline
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="/p{{ paginator.previous_page }}">&laquo; Prev</a>
+    {% if page == 1 %}
+      <a href="/">&laquo; Prev</a>
+    {% else }
+      <a href="/p{{ paginator.previous_page }}">&laquo; Prev</a>
+    {% endif }
   {% else %}
     <span>&laquo; Prev</span>
   {% endif %}
