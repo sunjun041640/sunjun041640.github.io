@@ -10,8 +10,16 @@ tagline: Supporting tagline
 	.blog-list li a:hover{color: red; font-weight: bold;}
 </style>
 
-<hr>
-
+<ul class="blog-list">
+  {% for post in paginator.posts %}
+    <li>
+      <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+      {{ post.excerpt | textilize }}
+      <!-- - {{ page.content | number_of_words }} --> 
+      - {{ post.date | date_to_string}}
+    </li>
+  {% endfor %}
+</ul>
 
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
